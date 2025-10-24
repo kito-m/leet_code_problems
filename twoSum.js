@@ -1,5 +1,4 @@
-console.time("ran in");
-
+//O{n2}
 var twoSum = function (nums, target) {
     for (let i = 0; i < nums.length; i++) {
         let iSlice = nums.slice(i);
@@ -12,27 +11,17 @@ var twoSum = function (nums, target) {
     }
 }
 
-twoSum([2, 7, 11, 15], 9)
-[0, 1]
+// O(n)
+function TwoSum(arr, target) {
+  const seen = {};
+  for (let i = 0; i < arr.length; i++) {
+    const compliment = target - arr[i];
+    if (seen.hasOwnProperty(compliment)) {
+      return [seen[compliment], i];
+    }
+    seen[arr[i]] = i;
+  }
+  return [];
+}
 
-twoSum(
-    [3, 2, 4],
-    6)
-[1, 2]
 
-twoSum(
-    [3, 2, 3],
-    6)
-[0, 2]
-
-twoSum(
-    [3, 3],
-    6)
-[0, 1]
-
-let nums = Array.from(Array(20000).keys())
-let target = 19999;
-
-twoSum(nums, target)
-
-console.timeEnd("ran in");
