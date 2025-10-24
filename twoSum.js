@@ -1,15 +1,14 @@
 //O{n2}
-var twoSum = function (nums, target) {
+var twoSum = function(nums, target) {
     for (let i = 0; i < nums.length; i++) {
-        let iSlice = nums.slice(i);
-        for (let j = 1; j < iSlice.length; j++) {
-            if (nums[i] + iSlice[j] == target) {
-                nums.splice(i, 1, null)
-                return [i, nums.indexOf(iSlice[j])]
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
             }
         }
     }
-}
+    return [];
+};
 
 // O(n)
 function TwoSum(arr, target) {
